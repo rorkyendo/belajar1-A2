@@ -24,6 +24,13 @@ class Auth extends CI_Controller {
 		$this->load->view('register',$data);
 	}
 
+	public function registerV2()
+	{
+		$data['title'] = 'Register Panel';
+		$data['subtitle'] = 'Silahkan Lakukan Pendaftaran';
+		$this->load->view('registerV2',$data);
+	}
+
 	public function mahasiswa(){
 		$this->General_model->get_general('mahasiswa');
 	}
