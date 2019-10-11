@@ -31,6 +31,34 @@ class Auth extends CI_Controller {
 		$this->load->view('registerV2',$data);
 	}
 
+	public function doRegisterWithJquery(){
+
+		$dataMahasiswa = array(
+			'nim' => $this->input->post('nim'),
+			'nama_lengkap' => $this->input->post('nama_lengkap'),
+			'jenkel' => $this->input->post('jenkel'),
+			'alamat' => $this->input->post('alamat'),
+			'fakultas' => $this->input->post('fakultas'),
+			'prodi' => $this->input->post('prodi'),
+		);
+
+		$dataPengguna = array(
+			'nim' => $this->input->post('nim'),
+			'username' => $this->input->post('username'),
+			'password' => sha1($this->input->post('password')),
+		);
+
+		$saveDataMahasiswa = $this->General_model->create_general('mahasiswa',$dataMahasiswa);
+		$savePengguna = $this->General_model->create_general('pengguna',$dataPengguna);
+
+		if (($saveDataMahasiswa && $savePengguna) == TRUE) {
+			echo "Data Berhasil disimpan!";
+		}else {
+			echo "terjadi kesalahan!";
+		}
+		
+	}
+
 	public function mahasiswa(){
 		$this->General_model->get_general('mahasiswa');
 	}
