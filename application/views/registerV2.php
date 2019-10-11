@@ -18,15 +18,15 @@
               <form class="" id="formRegister">
               <div class="form-group">
                   <label for="NIM">NIM</label>
-                  <input type="text" class="form-control" name="nim">
+                  <input type="text" class="form-control" name="nim" id="nim">
               </div>
               <div class="form-group">
                 <label for="Nama_lengkap">Nama Lengkap</label>
-                <input type="text" class="form-control" name="nama_lengkap">
+                <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap">
               </div>
               <div class="form-group">
                 <label for="Jenkel">Jenis Kelamin</label>
-                <select class="form-control" name="jenkel">
+                <select class="form-control" name="jenkel" id="jenkel">
                   <option value="">-Pilih Jenis Kelamin-</option>
                   <option value="L">Laki-laki</option>
                   <option value="P">Perempuan</option>
@@ -34,26 +34,52 @@
               </div>
               <div class="form-group">
                 <label for="Alamat">Alamat</label>
-                <textarea name="alamat" rows="8" cols="80" class="form-control"></textarea>
+                <textarea name="alamat" rows="8" cols="80" class="form-control" id="alamat"></textarea>
               </div>
               <div class="form-group">
                 <label for="Fakultas">Fakultas</label>
-                <input type="text" class="form-control" name="fakultas">
+                <input type="text" class="form-control" name="fakultas" id="fakultas">
               </div>
               <div class="form-group">
                 <label for="Prodi">Program Studi</label>
-                <input type="text" class="form-control" name="prodi">
+                <input type="text" class="form-control" name="prodi" id="prodi">
               </div>
               <div class="form-group">
                 <label for="Username">username</label>
-                <input type="text" class="form-control" name="username">
+                <input type="text" class="form-control" name="username" id="username">
               </div>
               <div class="form-group">
                 <label for="Password">password</label>
-                <input type="password" class="form-control" name="password">
+                <input type="password" class="form-control" name="password" id="password">
               </div>
-            <button type="submit" class="btn btn-info btn-sm">Daftar</button>
+            <button type="button" class="btn btn-info btn-sm" id='daftar'>Daftar</button>
             </form>
+            <div class="form-group">
+              <div class="alert alert-info" id='infoProses'>Disini Tampil info proses penyimpanan data</div>
+            </div>
+            <script type="text/javascript">
+              $('#daftar').click(function(){
+                $('#infoProses').text('Lagi diproses GAN!! Sabar ya..');
+                var nim = $('#nim').val()
+                var nama_lengkap = $('#nama_lengkap').val()
+                var jenkel = $('#jenkel').val()
+                var alamat = $('#alamat').val()
+                var fakultas = $('#fakultas').val()
+                var prodi = $('#prodi').val()
+                var username = $('#username').val()
+                var password = $('#password').val()
+                $.ajax({
+                  url:'<?php echo base_url('auth/doRegisterWithJquery');?>',
+                  type:'post',
+                  data:'nim='+nim+'&nama_lengkap='+nama_lengkap+'&jenkel='+jenkel+'&alamat='+alamat+'&fakultas='+fakultas+'&prodi='+prodi+'&username='+username+'&password='+password,
+                  success:function(data){
+                    $('#infoProses').text(data);
+                  },error:function(){
+                    $('#infoProses').text('Ada kesalahan');
+                  }
+                });
+              })
+            </script>
           </div>
         </div>
       </div>

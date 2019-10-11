@@ -48,15 +48,15 @@ class Auth extends CI_Controller {
 			'password' => sha1($this->input->post('password')),
 		);
 
-		$saveDataMahasiswa = $this->General_model->create_general('mahasiswa',$dataMahasiswa);
 		$savePengguna = $this->General_model->create_general('pengguna',$dataPengguna);
+		$saveDataMahasiswa = $this->General_model->create_general('mahasiswa',$dataMahasiswa);
 
 		if (($saveDataMahasiswa && $savePengguna) == TRUE) {
 			echo "Data Berhasil disimpan!";
 		}else {
 			echo "terjadi kesalahan!";
 		}
-		
+
 	}
 
 	public function mahasiswa(){
