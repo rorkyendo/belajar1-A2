@@ -59,6 +59,16 @@ class Auth extends CI_Controller {
 
 	}
 
+	public function cekNim(){
+		$nim = $this->input->get('nim');
+		$cekNim = $this->General_model->get_by_id_general('pengguna','nim',$nim);
+		if($cekNim == TRUE){
+				echo "true";
+		}else {
+				echo "false";
+		}
+	}
+
 	public function mahasiswa(){
 		$this->General_model->get_general('mahasiswa');
 	}

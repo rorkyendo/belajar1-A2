@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Okt 2019 pada 13.00
+-- Waktu pembuatan: 18 Okt 2019 pada 03.56
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.8
 
@@ -37,6 +37,18 @@ CREATE TABLE `mahasiswa` (
   `prodi` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`nim`, `nama_lengkap`, `jenkel`, `alamat`, `fakultas`, `prodi`) VALUES
+('171402030', 'a', 'L', 'a', 'a', 'a'),
+('171402031', 'Taufiq Rorkyendo', 'L', 'a', 'a', 'a'),
+('171402033', 'Taufiq Rorkyendo', 'L', 'a', 'a', 'a'),
+('171402039', 'Taufiq Rorkyendo', 'L', 'a', 'a', 'a'),
+('1714023090', 'a', 'L', 'a', 'a', 'a'),
+('1827387123', 'a', 'L', 'a', 'a', 'a');
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +60,18 @@ CREATE TABLE `pengguna` (
   `username` varchar(225) NOT NULL,
   `password` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pengguna`
+--
+
+INSERT INTO `pengguna` (`nim`, `username`, `password`) VALUES
+('171402030', 'a', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8'),
+('171402031', 'aa', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8'),
+('171402033', 'a', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8'),
+('171402039', 'a', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8'),
+('1714023090', 'a', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8'),
+('1827387123', 'a', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8');
 
 --
 -- Indexes for dumped tables
