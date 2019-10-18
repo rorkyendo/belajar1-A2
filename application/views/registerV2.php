@@ -57,9 +57,10 @@
             <div class="form-group">
               <div class="alert alert-info" id='infoProses'>Disini Tampil info proses penyimpanan data</div>
             </div>
+
             <script type="text/javascript">
               $('#daftar').click(function(){
-                $('#infoProses').text('Lagi diproses GAN!! Sabar ya..');
+                $('#infoProsesModal').modal('show');
                 var nim = $('#nim').val()
                 var nama_lengkap = $('#nama_lengkap').val()
                 var jenkel = $('#jenkel').val()
