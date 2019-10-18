@@ -1,0 +1,22 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Mahasiswa extends CI_Controller {
+
+	public function index()
+	{
+		$data['title'] = 'Data mahasiswa';
+		$data['subtitle'] = 'List Data Mahasiswa';
+		$data['mahasiswa'] = $this->General_model->get_general('mahasiswa');
+		$this->load->view('template/header',$data);
+		$this->load->view('template/navbar');
+		$this->load->view('template/sidebar');
+		$this->load->view('modul/mahasiswa/index',$data);
+		$this->load->view('template/footer');
+	}
+
+	// function mahasiswa(){
+	//
+	// }
+
+}
