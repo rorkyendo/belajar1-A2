@@ -7,7 +7,7 @@
         </div>
         <div class="panel panel-body">
           <div class="table-responsive">
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered" id="DataTables">
               <thead>
                 <tr>
                   <th>NIM</th>
@@ -27,6 +27,7 @@
                   <td><?php echo $key->fakultas;?></td>
                   <td><?php echo $key->prodi;?></td>
                   <td>
+                    <button type="button" onclick="detail('<?php echo $key->nim;?>')" class="btn btn-xs btn-info">Detail</button>
                     <button type="button" onclick="edit('<?php echo $key->nim;?>')" class="btn btn-xs btn-warning">Edit</button>
                   </td>
                 </tr>
@@ -39,3 +40,8 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$(document).ready( function () {
+  $('#DataTables').DataTable();
+} );
+</script>

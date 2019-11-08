@@ -15,8 +15,14 @@ class Mahasiswa extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	// function mahasiswa(){
-	//
-	// }
+	public function detail($nim){
+		$dataMahasiswa = $this->General_model->get_by_id_general('mahasiswa','nim',$nim);
+		if ($dataMahasiswa == TRUE) {
+			$dataMahasiswa = json_encode($dataMahasiswa);
+			echo $dataMahasiswa;
+		}else {
+			echo "";
+		}
+	}
 
 }
