@@ -18,7 +18,7 @@ class Mahasiswa extends CI_Controller {
 	public function detail($nim){
 		$dataMahasiswa = $this->General_model->get_by_id_general('mahasiswa','nim',$nim);
 		if ($dataMahasiswa == TRUE) {
-			$dataMahasiswa = json_encode($dataMahasiswa);
+			$dataMahasiswa = json_encode($dataMahasiswa,JSON_PRETTY_PRINT);
 			echo $dataMahasiswa;
 		}else {
 			echo "";
