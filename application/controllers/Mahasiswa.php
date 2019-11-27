@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mahasiswa extends CI_Controller {
 
+	public function __construct()
+  {
+			parent::__construct();
+			if($this->session->userdata('LoggedIN') == FALSE) redirect('auth/logout');
+  }
+
 	public function index()
 	{
 		$data['title'] = 'Data mahasiswa';
@@ -18,11 +24,18 @@ class Mahasiswa extends CI_Controller {
 	public function detail($nim){
 		$dataMahasiswa = $this->General_model->get_by_id_general('mahasiswa','nim',$nim);
 		if ($dataMahasiswa == TRUE) {
-			$dataMahasiswa = json_encode($dataMahasiswa,JSON_PRETTY_PRINT);
+			$dataMahasiswa = json_encode($dataMahasiswa);
 			echo $dataMahasiswa;
 		}else {
 			echo "";
 		}
 	}
+
+	// public function edit($nim){
+	// 	$dataMahasiswa = array(
+	// 		'nama_lengkap' => $nama_lengkap,
+	// 		'jen' => $nama_lengkap,
+	// 	);
+	// }
 
 }
